@@ -10,6 +10,21 @@ import { initialItems } from "../lib/constants"
 function App() {
   const [items, setItems] = useState(initialItems);
 
+  const handleAddItem = (newItemText) => {
+    // Create a new item object with the current time as the id 
+    const newItem ={
+      id: new Date().getTime(),
+      name: newItemText,
+      packed: false,
+  }
+    const newItems = [...items, newItem]
+    setItems(newItems)
+  };
+
+
+
+
+
 
   return (
     <>
@@ -17,7 +32,7 @@ function App() {
         <main>
           <Header/>
           <ItemList items={items}/>
-          <Sidebar setItems={setItems}/>
+          <Sidebar handleAddItem={handleAddItem}/>
         </main>
       <Footer />
     </>

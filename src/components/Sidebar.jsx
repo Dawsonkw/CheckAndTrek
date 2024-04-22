@@ -2,10 +2,10 @@ import AddItemForm from "./AddItemForm";
 import ButtonGroup from "./ButtonGroup";
 
 
-function Sidebar({ setItems }) {
+function Sidebar({ handleAddItem }) {
     return (
         <div className="sidebar">
-            <AddItemForm setItems={setItems} />
+            <AddItemForm onAddItem={handleAddItem} />
             <ButtonGroup />
         </div>
     );

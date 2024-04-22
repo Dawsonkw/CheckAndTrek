@@ -2,7 +2,7 @@ import { useRef, useState } from "react";
 import Button from "./Button";
 
 
-function AddItemForm({ setItems }) {
+function AddItemForm({ onAddItem }) {
     const [itemText, setItemText] = useState('');
     const inputRef = useRef();
 
@@ -15,14 +15,9 @@ function AddItemForm({ setItems }) {
             inputRef.current.focus();
             return;
         }
-        // Create a new item object with the current time as the id 
-        const newItem ={
-            id: new Date().getTime(),
-            name: itemText,
-            packed: false,
-        }
+
         // the spread operator is used to copy the previous items from the array and add the new item to the end using the setter function
-        setItems(prev => [...prev, newItem]);
+        onAddItem(itemText);
         setItemText('');
 }
     
