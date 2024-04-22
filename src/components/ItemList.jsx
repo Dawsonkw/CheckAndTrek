@@ -4,8 +4,7 @@ import { useState } from "react";
 
 
 
-function ItemList() {
-    const [items, setItems] = useState(initialItems);
+export default function ItemList({ items }) {
 
     return (
         <ul>
@@ -18,14 +17,13 @@ function ItemList() {
     );
 }
 
-function Item( { item } ) {
+function Item({ item }) {
     return <li className="item">
-                <label >
-                <input  type="checkbox" />
-                {item.name}
+                <label>
+                <input checked={item.packed}  type="checkbox" />
+                {item.name}    
                 </label>
                 <button>❌</button>
             </li>
 }
 
-export default (ItemList, Item);
