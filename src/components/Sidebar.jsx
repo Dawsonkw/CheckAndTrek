@@ -6,7 +6,12 @@ function Sidebar({ handleAddItem, handleRemoveAllItems, handleResetToInitial, ha
     return (
         <div className="sidebar">
             <AddItemForm onAddItem={handleAddItem}  />
-            <ButtonGroup handleRemoveAllItems={handleRemoveAllItems} handleResetToInitial={handleResetToInitial} handleMarkAllAsComplete={handleMarkAllAsComplete} handleMarkAllAsIncomplete={handleMarkAllAsIncomplete} />
+            <ButtonGroup 
+            handleRemoveAllItems={handleRemoveAllItems} 
+            handleResetToInitial={handleResetToInitial} 
+            handleMarkAllAsComplete={handleMarkAllAsComplete} 
+            handleMarkAllAsIncomplete={handleMarkAllAsIncomplete} 
+            />
         </div>
     );
 }

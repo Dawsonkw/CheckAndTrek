@@ -2,7 +2,7 @@
 
 function BackgroundHeading() {
     return (
-        <h1>Trekbag</h1>
+        <h1>Check & Trek</h1>
     );
 }
 
