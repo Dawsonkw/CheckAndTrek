@@ -266,6 +266,7 @@ h1 {
   text-transform: uppercase;
   letter-spacing: 0.2em;
   word-wrap: none;
+  text-align: center;
 }
 
 @media (max-height: 950px) {

@@ -69,13 +69,11 @@ function App() {
 
 
 
-
-
   return (
     <>
       <BackgroundHeading/>
         <main>
-          <Header/>
+          <Header totalNumberOfItems={items.length} numberOfItemsPacked={items.filter(item => item.packed).length}/>
           <ItemList items={items} handleDeleteItem={handleDeleteItem} handleToggleItem={handleToggleItem}/>
           <Sidebar handleAddItem={handleAddItem} handleRemoveAllItems={handleRemoveAllItems} handleResetToInitial={handleResetToInitial} handleMarkAllAsComplete={handleMarkAllAsComplete} handleMarkAllAsIncomplete={handleMarkAllAsIncomplete}/>
         </main>
