@@ -1,5 +1,6 @@
 import { useItemsStore } from "../stores/itemsStore";
 import Counter from "./Counter";
+import Datetime from "./Datetime";
 
 function Header() {
 const items = useItemsStore((state) => state.items);
@@ -10,6 +11,7 @@ const items = useItemsStore((state) => state.items);
       numberOfItemsPacked={items.filter((item) => item.packed).length}
       totalNumberOfItems={items.length}
       />
+      <Datetime />
     </header>
   );
 }
