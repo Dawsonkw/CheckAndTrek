@@ -7,6 +7,7 @@ const sortingOptions = [
   { value: "default", label: "Sort By Default" },
   { label: "Sort By Packed", value: "packed" },
   { label: "Sort By Unpacked", value: "unpacked" },
+  { label: "Sort Alphabetically", value: "alphabetical" },
 ];
 
 export default function ItemList() {
@@ -23,10 +24,11 @@ export default function ItemList() {
     () =>
       [...items].sort((a, b) => {
         if (sortBy === "packed") {
-          
           return b.packed - a.packed;
         } else if (sortBy === "unpacked") {
           return a.packed - b.packed;
+        } else if (sortBy === "alphabetical") {
+          return a.name.localeCompare(b.name);
         } else {
           return 0;
         }

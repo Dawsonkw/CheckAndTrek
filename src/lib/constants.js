@@ -13,7 +13,7 @@ export const initialItems = [
     {
         id: 3,
         name: "money",
-        packed: true,
+        packed: false,
     },
     {   
         id: 4,
