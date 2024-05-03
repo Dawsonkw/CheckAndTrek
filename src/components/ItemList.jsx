@@ -16,25 +16,35 @@ export default function ItemList() {
   const toggleItem = useItemsStore((state) => state.toggleItem);
 
   const [sortBy, setSortBy] = useState("default");
-
+  
   // Sort items based on the selected sorting option
   //copy the original items array and sort it based on the selected sorting option
   // useMemo makes it so that the component only re-renders when the sortedItems array changes
-  const sortedItems = useMemo(
-    () =>
-      [...items].sort((a, b) => {
-        if (sortBy === "packed") {
+  //Refactored the sorting logic into a separate function called compareFunction,
+  
+  //explanation for future projects:
+  // switch statement: The switch statement is a control flow statement in JS used to execute one block of code from multiple possibilities. It evaluates an expression (sortBy in this case) and compares it with multiple cases. When a match is found, the corresponding block of code is executed.
+  
+  // case clauses: Each case clause represents a possible value of the expression being evaluated (sortBy in this case). When the value of sortBy matches the value specified in a case clause, the corresponding block of code is executed.
+  
+  // default clause: This is like an "else" statement. If none of the case clauses match the value of the expression (sortBy), the code inside the default block is executed.
+  
+  const sortedItems = useMemo(() => {
+    const compareFunction = (a, b) => {
+      switch (sortBy) {
+        case "packed":
           return b.packed - a.packed;
-        } else if (sortBy === "unpacked") {
+        case "unpacked":
           return a.packed - b.packed;
-        } else if (sortBy === "alphabetical") {
+        case "alphabetical":
           return a.name.localeCompare(b.name);
-        } else {
+        default:
           return 0;
-        }
-      }),
-    [items, sortBy]
-  );
+      }
+    };
+  
+    return [...items].sort(compareFunction);
+  }, [items, sortBy]);
 
   return (
     <ul className="item-list">
@@ -75,3 +85,4 @@ function Item({ item, onDeleteItem, onToggleItem }) {
     </li>
   );
 }
+
